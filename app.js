@@ -662,6 +662,9 @@ function displayNextBus(bus) {
     
     // カウントダウン初期化
     updateCountdown();
+
+    // 乗り場をハイライト表示
+    highlightBusStop(bus.busStop);
 }
 
 // 今後のバスリストを表示
@@ -871,4 +874,33 @@ function refreshData() {
             }, 1000);
         }
     }, 500);
+}
+
+// マップ強調表示用
+function highlightBusStop(busStopNumber) {
+    const overlay = document.getElementById('bus-stop-highlight-overlay');
+    const infoText = document.getElementById('bus-stop-highlight-info');
+    
+    if (!overlay || !infoText) return;
+    
+    // 情報テキストを更新
+    infoText.textContent = `${busStopNumber}番乗り場`;
+    
+    // 乗り場番号に基づいて位置を設定
+    // 注: 以下の座標は例です。実際の画像に合わせて調整してください
+    const positions = {
+        '58': { top: '41%', left: '38%' },  // 川55の乗り場
+        '59': { top: '42%', left: '32%' },  // 川57の乗り場
+        '60': { top: '45%', left: '25%' }   // 川51の乗り場
+    };
+    
+    if (positions[busStopNumber]) {
+        // 該当する乗り場の位置が定義されている場合
+        overlay.style.display = 'block';
+        overlay.style.top = positions[busStopNumber].top;
+        overlay.style.left = positions[busStopNumber].left;
+    } else {
+        // 未定義の乗り場の場合は非表示
+        overlay.style.display = 'none';
+    }
 }

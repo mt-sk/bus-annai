@@ -35,6 +35,16 @@
                         発車時刻: <span id="next-bus-time">--:--</span>
                     </div>
                 </div>
+
+                <div class="bus-stop-highlight">
+                    <div class="bus-stop-map-container">
+                        <img src="bus_stop_map.jpg" alt="川崎駅西口バス乗り場案内図" class="bus-stop-map-img">
+                        <!-- 以下のオーバーレイ要素は動的に位置調整されます -->
+                        <div id="bus-stop-highlight-overlay" class="highlight-overlay"></div>
+                    </div>
+                    <p class="bus-stop-info-text">次のバス: <span id="bus-stop-highlight-info">--番乗り場</span></p>
+                </div>
+                
             </section>
             
 
@@ -111,16 +121,7 @@
                 </section>
             -->
 
-            <!-- バス乗り場案内 -->
-            <section class="card">
-                <h2 class="section-title accordion" id="bus-stop-map-toggle">乗り場案内</h2>
-                <div class="panel" id="bus-stop-map-panel">
-                    <div class="bus-stop-map">
-                        <img src="bus_stop_map.jpg" alt="川崎駅西口バス乗り場案内図" style="width:100%; max-width:500px; margin:0 auto; display:block;">
-                        <p style="text-align:center; margin-top:10px; font-size:14px;">川崎駅西口バス乗り場: 58番・59番・60番</p>
-                    </div>
-                </div>
-            </section>
+
             
             <!-- 更新ボタン -->
             <!-- 一旦不要
